@@ -8,6 +8,9 @@ const port = process.env.PORT || 3000;
 app.engine("handlebars", expressHandlebars.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Config static middleware
+app.use(express.static(`${__dirname}/public`));
+
 // Routes
 app.get("/", (_req, res) => res.render("home"));
 
