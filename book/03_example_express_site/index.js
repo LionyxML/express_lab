@@ -1,6 +1,6 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
-const fortune = require("./lib/fortune");
+const handlers = require("./lib/handlers");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,24 +13,11 @@ app.set("view engine", "handlebars");
 app.use(express.static(`${__dirname}/public`));
 
 // Routes
-app.get("/", (_req, res) => res.render("home"));
+app.get("/", handlers.home);
+app.get("/about", handlers.about);
 
-app.get("/about", (_req, res) =>
-  res.render("about", { fortune: fortune.getFortune() })
-);
-
-// Custom 404 page
-app.use((_req, res) => {
-  res.status(404);
-  res.render("404");
-});
-
-// Custom 500 page
-app.use((err, _req, res, _next) => {
-  console.error(err.message);
-  res.status(500);
-  res.render("500");
-});
+app.use(handlers.notFound);
+app.use(handlers.serverError);
 
 // App start
 app.listen(port, () =>
