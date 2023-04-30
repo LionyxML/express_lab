@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "node --watch index.js",
     "test": "jest"
   },
   "keywords": [],
