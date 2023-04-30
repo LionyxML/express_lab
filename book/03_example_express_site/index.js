@@ -20,6 +20,10 @@ app.use(handlers.notFound);
 app.use(handlers.serverError);
 
 // App start
-app.listen(port, () =>
-  console.log(`Express started on http://localhost:${port}`)
-);
+if (require.main === module) {
+  app.listen(port, () =>
+    console.log(`Express started on http://localhost:${port}`)
+  );
+} else {
+  module.exports = app;
+}
