@@ -21,6 +21,11 @@ app.get("/about", handlers.about);
 app.get("/headers", handlers.headers);
 app.get("/tks", handlers.tks);
 
+app.get("/api/v1/products", handlers.apiV1Products);
+app.get("/api/v1/products/:id", handlers.apiV1ProductsById);
+
+app.get("/api/v2/products", handlers.apiV2Products);
+
 app.use(handlers.notFound);
 app.use(handlers.serverError);
 

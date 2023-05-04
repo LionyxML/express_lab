@@ -21,3 +21,41 @@ exports.headers = (req, res) => {
 };
 
 exports.tks = (req, res) => res.render("tks");
+
+const products = [
+  { id: 0, name: "Cafè", price: 2.0 },
+  {
+    id: 1,
+    name: "Biscotto",
+    price: 2.0,
+  },
+];
+
+exports.apiV1Products = (req, res) => res.json(products);
+
+exports.apiV1ProductsById = (req, res) => {
+  const idx = products.findIndex(
+    (product) => product.id === parseInt(req.params.id)
+  );
+
+  if (idx < 0) return res.status(404).json({ error: "Product not found." });
+
+  res.json(products[idx]);
+};
+
+exports.apiV2Products = (req, res) => {
+  const productsXml = `<?xml version="1.0"?><products>${products
+    .map((p) => `<product price="${p.price}" id="${p.id}">${p.name}</product>`)
+    .join("")}</products>`;
+
+  const productsText = products
+    .map((p) => `${p.id}: ${p.name} (${p.price})`)
+    .join("\n");
+
+  res.format({
+    "application/json": () => res.json(products),
+    "application/xml": () => res.type("application/xml").send(productsXml),
+    "text/xml": () => res.type("text/xml").send(productsXml),
+    "text/plain": () => res.type("text/plain").send(productsText),
+  });
+};
