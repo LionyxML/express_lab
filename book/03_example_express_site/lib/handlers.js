@@ -8,7 +8,7 @@ exports.about = (_req, res) =>
 exports.notFound = (_req, res) => res.render("404");
 
 /* eslint-disable no-unused-vars */
-exports.serverError = (err, _req, res, _next) => res.render("500");
+exports.serverError = (_err, _req, res, _next) => res.render("500");
 /* eslint-enable no-unused-vars */
 
 exports.headers = (req, res) => {
@@ -20,7 +20,7 @@ exports.headers = (req, res) => {
   res.send(headers.join("\n"));
 };
 
-exports.tks = (req, res) => res.render("tks");
+exports.tks = (_req, res) => res.render("tks");
 
 const products = [
   { id: 0, name: "Cafè", price: 2.0 },
@@ -31,7 +31,7 @@ const products = [
   },
 ];
 
-exports.apiV1Products = (req, res) => res.json(products);
+exports.apiV1Products = (_req, res) => res.json(products);
 
 exports.apiV1ProductsById = (req, res) => {
   const idx = products.findIndex(
@@ -43,7 +43,7 @@ exports.apiV1ProductsById = (req, res) => {
   res.json(products[idx]);
 };
 
-exports.apiV2Products = (req, res) => {
+exports.apiV2Products = (_req, res) => {
   const productsXml = `<?xml version="1.0"?><products>${products
     .map((p) => `<product price="${p.price}" id="${p.id}">${p.name}</product>`)
     .join("")}</products>`;
