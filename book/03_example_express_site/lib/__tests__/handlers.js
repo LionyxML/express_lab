@@ -40,3 +40,34 @@ test("500 handler renders", () => {
   expect(res.render.mock.calls.length).toBe(1);
   expect(res.render.mock.calls[0][0]).toBe("500");
 });
+
+test("thanks page", () => {
+  const req = {};
+  const res = { render: jest.fn() };
+
+  handlers.tks(req, res);
+
+  expect(res.render.mock.calls.length).toBe(1);
+  expect(res.render.mock.calls[0][0]).toBe("tks");
+});
+
+test("request headers echo ", () => {
+  const req = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer token",
+    },
+  };
+  const sendMock = jest.fn();
+  const res = {
+    type: jest.fn(),
+    send: sendMock,
+  };
+
+  handlers.headers(req, res);
+
+  expect(res.type).toHaveBeenCalledWith("text/plain");
+  expect(sendMock).toHaveBeenCalledWith(
+    "===== Request Headers Echo\nContent-Type: application/json\nAuthorization: Bearer token"
+  );
+});

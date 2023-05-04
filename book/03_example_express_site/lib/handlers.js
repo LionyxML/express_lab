@@ -19,3 +19,5 @@ exports.headers = (req, res) => {
   ];
   res.send(headers.join("\n"));
 };
+
+exports.tks = (req, res) => res.render("tks");

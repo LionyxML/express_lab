@@ -20,3 +20,7 @@ Access in your browser:
 #### Run tests in watch mode with menu
 
 `npm test -- --watch`
+
+#### Generate coverage report
+
+`npm test -- --coverage`

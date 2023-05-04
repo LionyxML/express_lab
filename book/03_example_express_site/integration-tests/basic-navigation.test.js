@@ -30,4 +30,4 @@ test("home paage links to about page", async () => {
 
   expect(page.url()).toBe(`http://localhost:${port}/about`);
   await browser.close();
-});
+}, 10_000);
