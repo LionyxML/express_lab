@@ -5,6 +5,9 @@ const handlers = require("./lib/handlers");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Config to disable header
+app.disable("x-powered-by");
+
 // Config view engine to use Handlebars
 app.engine("handlebars", expressHandlebars.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
