@@ -5,8 +5,14 @@
 Install the dependencies:
 `npm install`
 
+Set the
+
 Run the server:
 `node index.js`
+
+or
+
+`NODE_ENV=production node index.js`
 
 Access in your browser:
 `http://localhost:3000`

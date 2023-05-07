@@ -2,11 +2,34 @@
 <html>
   <head>
     <title>Villa Estense Home Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-    <header>
-      <img src="/img/logo.png" alt="Country logo" height="40" width="40" />
-    </header>
-    {{{body}}}
-  </body>
+  <div class="container-fluid p-0">
+    <body>
+      <header>
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-dark text-light p-2 align-middle"
+        >
+          <img
+            class="mx-4"
+            src="/img/logo.png"
+            alt="Country logo"
+            height="40"
+            width="40"
+          />
+          <h1 class="mx-4 align-middle">An Italian Tale</h1>
+        </nav>
+      </header>
+      <div class="container">{{{body}}}</div>
+    </body>
+
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3">&copy; 2023 Sogni Italiani</div>
+    </footer>
+  </div>
 </html>
