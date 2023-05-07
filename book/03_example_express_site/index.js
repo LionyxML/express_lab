@@ -20,6 +20,8 @@ app.get("/", handlers.home);
 app.get("/about", handlers.about);
 app.get("/headers", handlers.headers);
 app.get("/tks", handlers.tks);
+app.get("/foo", handlers.foo);
+app.get("/foo2", handlers.foo2);
 
 app.get("/api/v1/products", handlers.apiV1Products);
 app.get("/api/v1/products/:id", handlers.apiV1ProductsById);
