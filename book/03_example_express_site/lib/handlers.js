@@ -62,3 +62,5 @@ exports.apiV2Products = (_req, res) => {
 
 exports.foo = (_req, res) => res.render("foo", { layout: null }); // if layout is null, all boiler plate must be on view
 exports.foo2 = (_req, res) => res.render("foo2", { layout: "secondary" }); // uses seconday layout
+
+exports.sections = (_req, res) => res.render("sections");

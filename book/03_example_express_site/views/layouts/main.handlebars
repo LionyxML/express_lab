@@ -7,7 +7,8 @@
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
-    />
+      />
+      {{{_sections.head}}}
   </head>
   <div class="container-fluid p-0">
     <body>
@@ -25,7 +26,10 @@
           <h1 class="mx-4 align-middle">An Italian Tale</h1>
         </nav>
       </header>
-      <div class="container">{{{body}}}</div>
+      <div class="container">
+        {{{body}}}
+      </div>
+      {{{_sections.scripts}}}      
     </body>
 
     <footer class="bg-light text-center text-lg-start">

@@ -9,7 +9,23 @@ const port = process.env.PORT || 3000;
 app.disable("x-powered-by");
 
 // Config view engine to use Handlebars
-app.engine("handlebars", expressHandlebars.engine({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  expressHandlebars.engine({
+    defaultLayout: "main",
+    helpers: {
+      // Allows sections (see view section-test)
+      // adding stuff to header and end of page
+      section: function (name, options) {
+        if (!this._sections) this._sections = {};
+
+        this._sections[name] = options.fn(this);
+
+        return null;
+      },
+    },
+  })
+);
 app.set("view engine", "handlebars");
 
 // Config static middleware
@@ -22,6 +38,7 @@ app.get("/headers", handlers.headers);
 app.get("/tks", handlers.tks);
 app.get("/foo", handlers.foo);
 app.get("/foo2", handlers.foo2);
+app.get("/sections", handlers.sections);
 
 app.get("/api/v1/products", handlers.apiV1Products);
 app.get("/api/v1/products/:id", handlers.apiV1ProductsById);
