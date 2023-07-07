@@ -1,0 +1,16 @@
+<div class="weatherWidget card w-24 p-3 m-3" style="width: 450px;">  
+  {{#each partials.weatherContext}}
+
+    <div class="location">
+      <h3>{{location.hame}}</h3>
+      <a href="{{location.forecastUrl}}">
+        <img src="{{iconUrl}}" alt="{{wheater}}">
+        {{weather}}, {{temp}}
+      </a>
+    </div>
+  {{/each}}
+
+  <small>Source: <a href="https://www.weather.gov/documentation/services-web-api">
+    National Weather Service </a></small>
+  
+</div>
