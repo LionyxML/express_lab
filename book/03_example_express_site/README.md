@@ -14,6 +14,10 @@ or
 
 `NODE_ENV=production node index.js`
 
+or
+
+`npm run dev`
+
 Access in your browser:
 `http://localhost:3000`
 
